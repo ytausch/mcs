@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+
+package:
+  name: mcs
+  version: ${{ env.get('GIT_DESCRIBE_TAG') | trim('v') }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - python -m pip install . --no-deps --ignore-installed -vv --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - python >=3.12
+    - pip
+    - setuptools-scm
+  run:
+    - python >=3.12
+
+tests:
+  - python:
+      imports:
+        - mcs
+      pip_check: true
+
+about:
+  homepage: https://github.com/ytausch/mcs
+  summary: Multi Coordinate Optimization for Python

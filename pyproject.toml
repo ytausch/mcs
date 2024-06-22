@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+
+[project]
+name = "mcs"
+description = "Multilevel Coordinate Search for Python"
+dynamic = ["version"]
+authors = [
+    { name = "Yannik Tausch", email = "dev@ytausch.de" },
+    { name = "Varun Ojha", email = "varun.ojha@ncl.ac.uk" },
+    { name = "Waltraud Huyer", email = "huyer@cma.univie.ac.at" },
+    { name = "Arnold Neumaier", email = "neum@cma.univie.ac.at" },
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+requires-python = ">=3.12"
+
+[project.urls]
+repository = "https://github.com/ytausch/mcs"
+
+[tool.setuptools.packages.find]
+include = ["mcs"]

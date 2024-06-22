@@ -12,9 +12,16 @@ channels = ["conda-forge"]
 platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 
 [tasks]
+postinstall = "pip install --no-build-isolation --no-deps --disable-pip-version-check -e ."
+
+
+[host-dependencies]
+pip = "*"
+setuptools = ">=70"
+setuptools-scm = "*"
 
 [dependencies]
-python = ">=3.12.4,<3.13"
+python = ">=3.12.4"
 numpy = ">=2.0.0,<2.1"
 scipy = ">=1.13.1,<1.14"
 
