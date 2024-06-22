@@ -54,9 +54,9 @@ def glstest(x):
         f = pow((3 * x - 1), 3)
     elif cas == 3:
         f = pow((3 * x - 1), 2)
-    elif cas == 4:
+    else:
         f = (x + 1) * math.sin(10 * x + 1)
-    return np.asscalar(f)
+    return f
 
 
 # ------------------------------------------------------------------------------------------

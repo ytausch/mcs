@@ -182,12 +182,12 @@ def minq(gam, c, G, xu, xo, prt):
 
                 return x, fct, ier
                 # print(x,fct,ier,nsub)
-                break
+                # break
             # end itr
 
             xnew = x[k] + alp
             if prt and nitref > 0:
-                xnew, alp
+                print(xnew, alp)
 
             if lba or xnew <= xu[k]:  # ok checked
                 # lower bound active

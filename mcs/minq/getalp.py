@@ -52,5 +52,5 @@ def getalp(alpu, alpo, gTp, pTGp):
         alp = alpo
 
     if abs(alp) == np.inf:
-        gTp, pTGp, alpu, alpo, alp, lba, uba, ier
+        print(gTp, pTGp, alpu, alpo, alp, lba, uba, ier)
     return alp, lba, uba, ier

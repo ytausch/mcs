@@ -105,7 +105,7 @@ def minqsub(nsub, free, L, dd, K, G, n, g, x, xo, xu, convex, xx, fct, nfree, un
             xx[ik] = xx[ik] + alp * p[ik]
 
         if abs(xx[ik]) == np.inf:
-            ik, alp, p[ik]
+            print(ik, alp, p[ik])
             sys.exit('infinite xx in minq')
 
     nfree = sum(free)
