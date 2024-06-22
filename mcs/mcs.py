@@ -12,27 +12,27 @@ import sys
 
 import numpy as np
 
-from mcs_fun.basket_func import basket
-from mcs_fun.basket_func import basket1
+from mcs.mcs_fun.basket_func import basket
+from mcs.mcs_fun.basket_func import basket1
 # %
 # MCS algorithm supporting functions =  first layer
-from mcs_fun.chk_bound import check_box_bound
-from mcs_fun.chk_flag import chrelerr
-from mcs_fun.chk_flag import chvtr
-from mcs_fun.chk_locks import addloc
-from mcs_fun.chk_locks import chkloc
-from mcs_fun.chk_locks import fbestloc
-from mcs_fun.exgain import exgain
-from mcs_fun.initi_func import init
-from mcs_fun.initi_func import initbox
-from mcs_fun.initi_func import subint
-from mcs_fun.lsearch import lsearch
-from mcs_fun.split_func import splinit
-from mcs_fun.split_func import split
-from mcs_fun.splrnk import splrnk
-from mcs_fun.strtsw import strtsw
-from mcs_fun.updtrec import updtrec
-from mcs_fun.vertex_func import vertex
+from mcs.mcs_fun.chk_bound import check_box_bound
+from mcs.mcs_fun.chk_flag import chrelerr
+from mcs.mcs_fun.chk_flag import chvtr
+from mcs.mcs_fun.chk_locks import addloc
+from mcs.mcs_fun.chk_locks import chkloc
+from mcs.mcs_fun.chk_locks import fbestloc
+from mcs.mcs_fun.exgain import exgain
+from mcs.mcs_fun.initi_func import init
+from mcs.mcs_fun.initi_func import initbox
+from mcs.mcs_fun.initi_func import subint
+from mcs.mcs_fun.lsearch import lsearch
+from mcs.mcs_fun.split_func import splinit
+from mcs.mcs_fun.split_func import split
+from mcs.mcs_fun.splrnk import splrnk
+from mcs.mcs_fun.strtsw import strtsw
+from mcs.mcs_fun.updtrec import updtrec
+from mcs.mcs_fun.vertex_func import vertex
 
 
 # %%
