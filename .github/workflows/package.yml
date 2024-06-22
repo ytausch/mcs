@@ -1,0 +1,20 @@
+name: Package
+on: [push]
+
+jobs:
+  build:
+    name: Build conda package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run rattler-build
+        uses: prefix-dev/rattler-build-action@v0.2.10
+      - run: |
+          for pkg in $(find output -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
+            echo "Uploading ${pkg}"
+            rattler-build upload prefix -c my-channel "${pkg}"
+          done
+          env:
+            PREFIX_API_KEY: ${{ secrets.PREFIX_API_KEY }}
