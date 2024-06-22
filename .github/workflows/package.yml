@@ -6,12 +6,16 @@ jobs:
     name: Build conda package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Get latest tag
+        run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
       - name: Run rattler-build
         uses: prefix-dev/rattler-build-action@v0.2.10
-      - run: |
+      - name: Upload to prefix.dev
+        run: |
           for pkg in $(find output -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
             echo "Uploading ${pkg}"
             rattler-build upload prefix -c my-channel "${pkg}"
