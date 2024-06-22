@@ -5,9 +5,9 @@
 
 
 import numpy as np
-from functions.functions import feval
-from gls.lsnew import lsnew
-from gls.lssort import lssort
+from mcs.functions.functions import feval
+from mcs.gls.lsnew import lsnew
+from mcs.gls.lssort import lssort
 
 
 # ------------------------------------------------------------------------------

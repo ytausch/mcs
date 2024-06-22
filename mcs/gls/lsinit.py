@@ -2,7 +2,7 @@
 import sys
 
 import numpy as np
-from functions.functions import feval
+from mcs.functions.functions import feval
 
 
 def lsinit(func, x, p, alist, flist, amin, amax, scale):

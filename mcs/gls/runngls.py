@@ -8,7 +8,7 @@ Arnold Neumaier
 """
 
 # %%
-from optimization.parameter.mcs.gls.gls import gls
+from mcs.gls.gls import gls
 
 prt = 2  # # print level
 xx = [-9, 2]  # # interval for searching minimum

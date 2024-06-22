@@ -16,8 +16,8 @@ Created on Sat Oct 19 10:28:05 2019
 
 #
 import numpy as np
-from optimization.parameter.mcs.minq.ldldown import ldldown
-from optimization.parameter.mcs.minq.ldlup import ldlup
+from mcs.minq.ldldown import ldldown
+from mcs.minq.ldlup import ldlup
 
 for i in range(100):
     n = 10

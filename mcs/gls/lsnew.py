@@ -5,8 +5,8 @@ Created on Mon Oct 14 17:04:07 2019
 @author: yl918888
 """
 import numpy as np
-from functions.functions import feval
-from gls.lssplit import lssplit
+from mcs.functions.functions import feval
+from mcs.gls.lssplit import lssplit
 
 
 # from gls.lssort import lssort

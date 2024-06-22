@@ -3,9 +3,9 @@
 #
 
 import numpy as np
-from functions.functions import feval
-from gls.lsguard import lsguard
-from gls.lssort import lssort
+from mcs.functions.functions import feval
+from mcs.gls.lsguard import lsguard
+from mcs.gls.lssort import lssort
 
 
 # find all strict local minima

@@ -1,8 +1,8 @@
 import sys
 
 import numpy as np
-from minq.getalp import getalp
-from minq.minqsub import minqsub
+from mcs.minq.getalp import getalp
+from mcs.minq.minqsub import minqsub
 from scipy.sparse import spdiags
 
 

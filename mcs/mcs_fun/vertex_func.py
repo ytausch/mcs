@@ -2,9 +2,9 @@ import copy
 import math
 
 import numpy as np
-from mcs_fun.split_func import split1
+from mcs.mcs_fun.split_func import split1
 # ------------------------------------------------------------------------------
-from mcs_fun.updtf import updtf
+from mcs.mcs_fun.updtf import updtf
 
 
 # ------------------------------------------------------------------------------

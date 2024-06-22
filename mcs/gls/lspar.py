@@ -4,10 +4,10 @@
 import copy
 
 import numpy as np
-from functions.functions import feval
-from gls.lsguard import lsguard
-from gls.lsnew import lsnew
-from gls.lssort import lssort
+from mcs.functions.functions import feval
+from mcs.gls.lsguard import lsguard
+from mcs.gls.lsnew import lsnew
+from mcs.gls.lssort import lssort
 
 
 def lspar(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp, abest, fbest, fmed, up, down, monotone,

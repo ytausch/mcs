@@ -8,17 +8,17 @@ Created on Mon Oct 14 09:21:08 2019
 # import matplotlib.pyplot as plt
 # packages from gls
 import numpy as np
-from gls.lsconvex import lsconvex
-from gls.lsdescent import lsdescent
-from gls.lsinit import lsinit
-from gls.lslocal import lslocal
-from gls.lsnew import lsnew
-from gls.lspar import lspar
-from gls.lsquart import lsquart
-from gls.lsrange import lsrange
-from gls.lssat import lssat
-from gls.lssep import lssep
-from gls.lssort import lssort
+from mcs.gls.lsconvex import lsconvex
+from mcs.gls.lsdescent import lsdescent
+from mcs.gls.lsinit import lsinit
+from mcs.gls.lslocal import lslocal
+from mcs.gls.lsnew import lsnew
+from mcs.gls.lspar import lspar
+from mcs.gls.lsquart import lsquart
+from mcs.gls.lsrange import lsrange
+from mcs.gls.lssat import lssat
+from mcs.gls.lssep import lssep
+from mcs.gls.lssort import lssort
 
 
 # %%

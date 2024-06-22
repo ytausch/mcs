@@ -1,7 +1,7 @@
 import sys
 
 import numpy as np
-from optimization.parameter.mcs.minq.minq import minq
+from mcs.minq.minq import minq
 from scipy.sparse import spdiags
 
 

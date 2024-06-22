@@ -2,9 +2,9 @@ import copy
 
 import numpy as np
 # ------------------------------------------------------------------------------
-from functions.functions import feval
-from mcs_fun.hessian import hessian
-from mcs_fun.polint import polint1
+from mcs.functions.functions import feval
+from mcs.mcs_fun.hessian import hessian
+from mcs.mcs_fun.polint import polint1
 
 
 # ------------------------------------------------------------------------------

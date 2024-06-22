@@ -2,9 +2,9 @@
 
 # %%
 import numpy as np
-from optimization.parameter.mcs.minq.minq_data import minq_data
-from optimization.parameter.mcs.minq.minqdef import minqdef
-from optimization.parameter.mcs.minq.minqsep import minqsep
+from mcs.minq.minq_data import minq_data
+from mcs.minq.minqdef import minqdef
+from mcs.minq.minqsep import minqsep
 
 n = 7  #
 m = 10  #

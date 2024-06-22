@@ -2,14 +2,14 @@ import copy
 
 import numpy as np
 # ------------------------------------------------------------------------------
-from functions.functions import feval
-from gls.gls import gls
-from mcs_fun.chk_flag import chrelerr
-from mcs_fun.chk_flag import chvtr
-from mcs_fun.csearch import csearch
-from mcs_fun.neighbor import neighbor
-from mcs_fun.triple import triple
-from minq.minq import minq
+from mcs.functions.functions import feval
+from mcs.gls.gls import gls
+from mcs.mcs_fun.chk_flag import chrelerr
+from mcs.mcs_fun.chk_flag import chvtr
+from mcs.mcs_fun.csearch import csearch
+from mcs.mcs_fun.neighbor import neighbor
+from mcs.mcs_fun.triple import triple
+from mcs.minq.minq import minq
 
 
 # ------------------------------------------------------------------------------

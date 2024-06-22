@@ -2,8 +2,8 @@
 # check descent condition
 # 
 import numpy as np
-from functions.functions import feval
-from gls.lssort import lssort
+from mcs.functions.functions import feval
+from mcs.gls.lssort import lssort
 
 
 def lsdescent(func, x, p, alist, flist, alp, abest, fbest, fmed, up, down, monotone, minima, nmin, unitlen, s):

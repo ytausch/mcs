@@ -1,8 +1,8 @@
 import numpy as np
-from mcs_fun.initi_func import subint
-from mcs_fun.polint import polint
-from mcs_fun.quadratic_func import quadmin
-from mcs_fun.quadratic_func import quadpol
+from mcs.mcs_fun.initi_func import subint
+from mcs.mcs_fun.polint import polint
+from mcs.mcs_fun.quadratic_func import quadmin
+from mcs.mcs_fun.quadratic_func import quadpol
 
 
 # ------------------------------------------------------------------------------

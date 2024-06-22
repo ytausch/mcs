@@ -7,7 +7,7 @@
 # d contains diag(D) and is assumed positive
 # Note that g must have zeros in other unit rows!!!
 import numpy as np
-from minq.ldlrk1 import ldlrk1
+from mcs.minq.ldlrk1 import ldlrk1
 
 
 def ldlup(L, d, j, g):

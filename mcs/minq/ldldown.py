@@ -3,7 +3,7 @@
 #
 # d contains diag(D) and is assumed positive
 import numpy as np
-from minq.ldlrk1 import ldlrk1
+from mcs.minq.ldlrk1 import ldlrk1
 from scipy import sparse
 
 

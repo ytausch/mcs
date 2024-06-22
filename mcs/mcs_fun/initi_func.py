@@ -1,7 +1,7 @@
 import numpy as np
 # ------------------------------------------------------------------------------
-from functions.functions import feval
-from mcs_fun.sign import sign
+from mcs.functions.functions import feval
+from mcs.mcs_fun.sign import sign
 
 
 # ------------------------------------------------------------------------------
@@ -70,10 +70,10 @@ def init(fcn, x0, l, L, n):
 
 
 # ------------------------------------------------------------------------------
-from mcs_fun.genbox import genbox
-from mcs_fun.polint import polint
-from mcs_fun.quadratic_func import quadmin
-from mcs_fun.quadratic_func import quadpol
+from mcs.mcs_fun.genbox import genbox
+from mcs.mcs_fun.polint import polint
+from mcs.mcs_fun.quadratic_func import quadmin
+from mcs.mcs_fun.quadratic_func import quadpol
 
 
 # ------------------------------------------------------------------------------

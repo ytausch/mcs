@@ -2,9 +2,9 @@
 import sys
 
 import numpy as np
-from minq.getalp import getalp
-from minq.ldldown import ldldown
-from minq.ldlup import ldlup
+from mcs.minq.getalp import getalp
+from mcs.minq.ldldown import ldldown
+from mcs.minq.ldlup import ldlup
 
 
 # %%------------------------------------------------------------------------------

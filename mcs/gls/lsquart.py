@@ -5,11 +5,11 @@
 # 	maybe expansion around boundary points work better
 #
 import numpy as np
-from functions.functions import feval
-from gls.lsguard import lsguard
-from gls.lslocal import lslocal
-from gls.lssort import lssort
-from gls.quartic import quartic
+from mcs.functions.functions import feval
+from mcs.gls.lsguard import lsguard
+from mcs.gls.lslocal import lslocal
+from mcs.gls.lssort import lssort
+from mcs.gls.quartic import quartic
 
 
 # find quartic interpolant
