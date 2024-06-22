@@ -9,8 +9,8 @@ from mcs.functions import functions
 
 @dataclass
 class MCSResult:
-    best_f: float
-    best_x: np.ndarray
+    f_best: float
+    x_best: np.ndarray
     function_call_count: int
 
 
@@ -64,3 +64,5 @@ def run_mcs(
         local_search_accuracy,
         hessian_sparsity or np.ones((n, n))
     )
+
+    return MCSResult(f_best, x_best, n_calls)
