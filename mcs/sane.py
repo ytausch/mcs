@@ -41,8 +41,14 @@ def run_mcs(
     :param hessian_sparsity: The sparsity pattern of the Hessian. Defaults to a nxn matrix of ones.
     :return: The best function value and the corresponding input.
     """
+    def target_function(x: np.ndarray | list) -> float:
+        if isinstance(x, list):
+            # yep, this can happen...
+            x = np.array(x)
+        return f(x)
+
     # monkeypatching this is a very ugly hack but avoids modifying the existing code too much
-    functions.myfun = f
+    functions.myfun = target_function
 
     n = len(domain_lower)
     """
