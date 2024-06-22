@@ -50,8 +50,8 @@ def lsrange(func, xl, xu, x, p, prt, bend):
 
     if not bend:
         # find range of useful alp in truncated line search
-        amin = -np.Inf
-        amax = np.Inf
+        amin = -np.inf
+        amax = np.inf
         for i in range(len(x)):
             if p[i] > 0:
                 amin = max(amin, (xl[i] - x[i]) / p[i])
@@ -72,8 +72,8 @@ def lsrange(func, xl, xu, x, p, prt, bend):
     #                ff.append(feval(func,xx))
     else:
         # find range of useful alp in bent line search
-        amin = np.Inf
-        amax = -np.Inf
+        amin = np.inf
+        amax = -np.inf
         for i in range(len(x)):
             if p[i] > 0:
                 amin = min(amin, (xl[i] - x[i]) / p[i])

@@ -58,7 +58,7 @@ def lspar(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp, 
         alptol = small * (aa[2] - aa[0])
 
         # handle infinities and close predictor
-        if f123 == np.Inf or min([abs(i - alp) for i in alist]) <= alptol:
+        if f123 == np.inf or min([abs(i - alp) for i in alist]) <= alptol:
             # split best interval
             # if prt>1, disp('split best interval'); #
             if ii == 0 or (ii == 1 and (aa[1] >= 0.5 * (aa[0] + aa[2]))):

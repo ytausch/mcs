@@ -15,7 +15,7 @@ def minqdef(c, G, A, b, eq, prt):
     GG = np.dot(A0, A0.T)
     c0 = np.linalg.solve(R.T, c)
     cc = -b - np.dot(A0, c0)
-    yo = np.Inf + np.zeros(m)
+    yo = np.inf + np.zeros(m)
     yu = np.zeros(m)
     yu = np.asarray([-yo[i] if eq[i] else yu[i] for i in range(eq.shape[0])])
 

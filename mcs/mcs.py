@@ -230,7 +230,7 @@ def mcs(fcn, u, v, smax, nf, stop, iinit, local, gamma, hess, prt=1):
             i = isplit[par]  # no deduction beacuse of positive index
             level[par] = 0
             # print('check len b:',len(xmin),nbasket,nbasket0)
-            if z[1, par] == np.Inf:  # prepare for splitting by initialization list
+            if z[1, par] == np.inf:  # prepare for splitting by initialization list
                 m += 1
                 z[1, par] = m
                 xbest, fbest, f01, xmin, fmi, ipar, level, ichild, f, flag, ncall1, record, nboxes, nbasket, nsweepbest, nsweep = splinit(

@@ -15,10 +15,10 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
         # indicate that these quantities haven't been found yet in the course of
         # pursuing the history of box j
     """
-    x = np.multiply(np.Inf, np.ones(n))
-    y = np.multiply(np.Inf, np.ones(n))
-    x1 = np.multiply(np.Inf, np.ones(n))
-    x2 = np.multiply(np.Inf, np.ones(n))
+    x = np.multiply(np.inf, np.ones(n))
+    y = np.multiply(np.inf, np.ones(n))
+    x1 = np.multiply(np.inf, np.ones(n))
+    x2 = np.multiply(np.inf, np.ones(n))
     f1 = np.zeros(n)
     f2 = np.zeros(n)
     # counting tthe number of time boxes has been split in ith direction
@@ -36,20 +36,20 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
 
         # ichild holds value from level 1 and not from level 0 there > 0 is ok
         if ichild[m] == 1:
-            if x[i] == np.Inf or x[i] == z[0, ipar[m]]:
+            if x[i] == np.inf or x[i] == z[0, ipar[m]]:
                 x[i], x1[i], x2[i], f1[i], f2[i] = vert1(1, z[:, ipar[m]], f[:, ipar[m]], x1[i], x2[i], f1[i], f2[i])
             else:
                 f1, f2, fold = updtf(n, i, x1, x2, f1, f2, fold, f[0, ipar[m]])
                 x1[i], x2[i], f1[i], f2[i] = vert2(0, x[i], z[:, ipar[m]], f[:, ipar[m]], x1[i], x2[i], f1[i], f2[i])
         elif ichild[m] >= 2:
             f1, f2, fold = updtf(n, i, x1, x2, f1, f2, fold, f[0, ipar[m]])
-            if x[i] == np.Inf or x[i] == z[1, ipar[m]]:
+            if x[i] == np.inf or x[i] == z[1, ipar[m]]:
                 x[i], x1[i], x2[i], f1[i], f2[i] = vert1(0, z[:, ipar[m]], f[:, ipar[m]], x1[i], x2[i], f1[i], f2[i])
             else:
                 x1[i], x2[i], f1[i], f2[i] = vert2(1, x[i], z[:, ipar[m]], f[:, ipar[m]], x1[i], x2[i], f1[i], f2[i])
 
         # ichild holds value from level 1 and not from level 0 there > 0 is ok
-        if 1 <= ichild[m] and ichild[m] <= 2 and y[i] == np.Inf:
+        if 1 <= ichild[m] and ichild[m] <= 2 and y[i] == np.inf:
             y[i] = split1(z[0, ipar[m]], z[1, ipar[m]], f[0, ipar[m]], f[1, ipar[m]])
 
         # ichild holds value from level 1 and not from level 0 there > 0 is ok
@@ -85,17 +85,17 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
                 # list; k points to the corresponding function values  
                 k = int(z[0, ipar[m]])
 
-            if j1 != l[i] or (x[i] != np.Inf and x[i] != x0[i, l[i]]):
+            if j1 != l[i] or (x[i] != np.inf and x[i] != x0[i, l[i]]):
                 f1, f2, fold = updtf(n, i, x1, x2, f1, f2, fold, f0[l[i], k])
 
-            if x[i] == np.Inf or x[i] == x0[i, j1]:
+            if x[i] == np.inf or x[i] == x0[i, j1]:
                 x[i] = x0[i, j1]
-                if x1[i] == np.Inf:
+                if x1[i] == np.inf:
                     x1[i], x2[i], f1[i], f2[i] = vert3(j1, x0[i, :], f0[:, k], L[i], x1[i], x2[i], f1[i], f2[i])
-                elif x2[i] == np.Inf and x1[i] != x0[i, j1 + j3]:
+                elif x2[i] == np.inf and x1[i] != x0[i, j1 + j3]:
                     x2[i] = x0[i, j1 + j3]
                     f2[i] = f2[i] + f0[j1 + j3, k]
-                elif x2[i] == np.Inf:
+                elif x2[i] == np.inf:
                     if j1 != 1 and j1 != L[i]:
                         x2[i] = x0[i, j1 - j3]
                         f2[i] = f2[i] + f0[j1 - j3, k]
@@ -103,16 +103,16 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
                         x2[i] = x0[i, j1 + 2 * j3]
                         f2[i] = f2[i] + f0[j1 + 2 * j3, k]
                     # end j1 != 1
-                # end x1[i] == np.Inf
+                # end x1[i] == np.inf
             else:
-                if x1[i] == np.Inf:
+                if x1[i] == np.inf:
                     x1[i] = x0[i, j1]
                     f1[i] = f1[i] + f0[j1, k]
                     if x[i] != x0[i, j1 + j3]:
                         x2[i] = x0[i, j1 + j3]
                         f2[i] = f2[i] + f0[j1 + j3, k]
                     # end  if x[i] != x0[i,j1+j3]
-                elif x2[i] == np.Inf:
+                elif x2[i] == np.inf:
                     if x1[i] != x0[i, j1]:
                         x2[i] = x0[i, j1]
                         f2[i] = f2[i] + f0[j1, k]
@@ -128,9 +128,9 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
                             f2[i] = f2[i] + f0[j1 + 2 * j3, k]
                         # end j1 != 1 and j1 != L[i]
                     # end x1[i] != x0[i,j1]
-                # end x1[i] == np.Inf
-            # end  x[i] == np.Inf or x[i] == x0[i,j1]
-            if y[i] == np.Inf:
+                # end x1[i] == np.inf
+            # end  x[i] == np.inf or x[i] == x0[i,j1]
+            if y[i] == np.inf:
                 if j2 == -1:  # make it nagative since in python index case it can become nagative
                     y[i] = u[i]
                 elif j2 == L[i]:
@@ -143,11 +143,11 @@ def vertex(j, n, u, v, v1, x0, f0, ipar, isplit, ichild, z, f, l, L):
         m = ipar[m]
     # end while
     for i in range(n):
-        if x[i] == np.Inf:
+        if x[i] == np.inf:
             x[i] = x0[i, l[i]]
             x1[i], x2[i], f1[i], f2[i] = vert3(l[i], x0[i, :], f0[:, i], L[i], x1[i], x2[i], f1[i], f2[i])
 
-        if y[i] == np.Inf:
+        if y[i] == np.inf:
             y[i] = v1[i]
 
     return n0, x, y, x1, x2, f1, f2
@@ -161,10 +161,10 @@ def vert1(j, z, f, x1, x2, f1, f2):
         j1 = 0  # go to left end
 
     x = z[j1]
-    if x1 == np.Inf:
+    if x1 == np.inf:
         x1 = z[j]
         f1 = f1 + f[j]
-    elif x2 == np.Inf and x1 != z[j]:
+    elif x2 == np.inf and x1 != z[j]:
         x2 = z[j]
         f2 = f2 + f[j]
 
@@ -178,17 +178,17 @@ def vert2(j, x, z, f, x1, x2, f1, f2):
     else:
         j1 = 0  # go to left endpoint
 
-    if x1 == np.Inf:
+    if x1 == np.inf:
         x1 = z[j]
         f1 = f1 + f[j]
         if x != z[j1]:
             x2 = z[j1]
             f2 = f2 + f[j1]
         # end
-    elif x2 == np.Inf and x1 != z[j]:
+    elif x2 == np.inf and x1 != z[j]:
         x2 = z[j]
         f2 = f2 + f[j]
-    elif x2 == np.Inf:
+    elif x2 == np.inf:
         x2 = z[j1]
         f2 = f2 + f[j1]
     # end

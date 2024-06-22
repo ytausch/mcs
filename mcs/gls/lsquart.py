@@ -46,7 +46,7 @@ def lsquart(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp
     f12345 = (f2345 - f1234) / (alist[4] - alist[0])
     # print(f123,f234,f345,f1234,f2345,f12345)
 
-    good = np.Inf
+    good = np.inf
     if f12345 <= 0:
         # quartic not bounded below
         # print('local step (quartic not bounded below)')

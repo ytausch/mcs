@@ -33,6 +33,6 @@ def splrnk(n, n0, p, x, y):
     if n1 > 0:
         splval = split2(x[isplit], y[isplit])
     else:
-        splval = np.Inf
+        splval = np.inf
     # end
     return isplit, splval

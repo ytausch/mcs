@@ -100,7 +100,7 @@ def minq(gam, c, G, xu, xo, prt):
     nfree = 0
     nfree_old = -1
 
-    fct = np.Inf  # best function value
+    fct = np.inf  # best function value
     nsub = 0  # number of subspace steps
     unfix = 1  # allow variables to be freed in csearch?
     nitref = 0  # no iterative refinement steps so far

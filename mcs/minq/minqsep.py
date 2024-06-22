@@ -44,7 +44,7 @@ def minqsep(c, d, A, b, eq, prt):
     D = spdiags(d, 0, n, n).toarray()
     G = np.dot(A, np.linalg.solve(D, A.T))
     cc = -b - np.dot(A, (c / d))
-    yo = np.Inf + np.zeros(m)
+    yo = np.inf + np.zeros(m)
     yu = np.zeros(m)
     yu = np.asarray([-yo[i] if eq[i] else yu[i] for i in range(eq.shape[0])])
 

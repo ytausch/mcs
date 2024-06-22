@@ -221,7 +221,7 @@ def lsearch(fcn, x, f, f0, u, v, nf, stop, maxstep, gamma, hess, nsweep, nsweepb
             gain = f - fmi
             if not gain:
                 eps0 = 0.001
-                fac = np.Inf
+                fac = np.inf
                 r = 0
                 # end not gain
         # end if norm p

@@ -49,7 +49,7 @@ def lsinit(func, x, p, alist, flist, amin, amax, scale):
     if aamax - aamin <= scale:
         alp1 = max(amin, min(-scale, amax))  # scalr
         alp2 = max(amin, min(+scale, amax))  # scalr
-        alp = np.Inf  # scalr
+        alp = np.inf  # scalr
 
         if aamin - alp1 >= alp2 - aamax:
             alp = alp1

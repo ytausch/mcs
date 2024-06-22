@@ -74,28 +74,28 @@ def lslocal(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp
         if ii == 0:  # boundary minimum
             # parabolic minimizer or extrapolation step
             cas = 0  #
-            if f123 > 0 and f123 < np.Inf:
+            if f123 > 0 and f123 < np.inf:
                 alp = 0.5 * (aa[1] + aa[2] - f23 / f123)
                 if alp < amin:
                     cas = -1
             else:
-                alp = -np.Inf
+                alp = -np.inf
                 if alist[0] == amin and flist[1] < flist[2]:
                     cas = -1
             alp = lsguard(alp, alist, amax, amin, small)  #
         elif ii == 4:  # boundary minimum
             # parabolic minimizer or extrapolation step
             cas = 0  #
-            if f345 > 0 and f345 < np.Inf:
+            if f345 > 0 and f345 < np.inf:
                 alp = 0.5 * (aa[2] + aa[3] - f34 / f345)  #
                 if alp > amax:
                     cas = -1  ##
             else:
-                alp = np.Inf  #
+                alp = np.inf  #
                 if alist[s - 1] == amax and flist[s - 2] < flist[s - 3]:
                     cas = -1
             alp = lsguard(alp, alist, amax, amin, small)
-        elif not (f234 > 0 and f234 < np.Inf):
+        elif not (f234 > 0 and f234 < np.inf):
             # parabolic minimizer
             cas = 0  #
             if ii < 2:
@@ -103,14 +103,14 @@ def lslocal(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp
             else:
                 alp = 0.5 * (aa[2] + aa[3] - f34 / f345)
 
-        elif not (f123 > 0 and f123 < np.Inf):
-            if f345 > 0 and f345 < np.Inf:
+        elif not (f123 > 0 and f123 < np.inf):
+            if f345 > 0 and f345 < np.inf:
                 cas = 5  # # use 2345
             else:
                 # parabolic minimizer
                 cas = 0  #
                 alp = 0.5 * (aa[2] + aa[3] - f34 / f234)  #
-        elif f345 > 0 and f345 < np.Inf and ff[1] > ff[3]:
+        elif f345 > 0 and f345 < np.inf and ff[1] > ff[3]:
             cas = 5  # # use 2345
         else:
             cas = 1  # # use 1234

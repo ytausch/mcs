@@ -18,10 +18,10 @@ def getalp(alpu, alpo, gTp, pTGp):
 
     # determine unboundedness
     ier = 0
-    if alpu == -np.Inf and (pTGp < 0 or (pTGp == 0 and gTp > 0)):
+    if alpu == -np.inf and (pTGp < 0 or (pTGp == 0 and gTp > 0)):
         ier = 1
         lba = True
-    if alpo == np.Inf and (pTGp < 0 or (pTGp == 0 and gTp < 0)):
+    if alpo == np.inf and (pTGp < 0 or (pTGp == 0 and gTp < 0)):
         ier = 1
         uba = True
     if ier:
@@ -33,13 +33,13 @@ def getalp(alpu, alpo, gTp, pTGp):
         alp = 0
     elif pTGp <= 0:
         # concave case minimal at a bound
-        if alpu == -np.Inf:
+        if alpu == -np.inf:
             lba = False
-        elif alpo == np.Inf:
+        elif alpo == np.inf:
             lba = True
         else:
             lba = (2 * gTp + (alpu + alpo) * pTGp > 0)
-            # end  alpu == -np.Inf
+            # end  alpu == -np.inf
         uba = not lba
     else:
         alp = -gTp / pTGp  # unconstrained optimal step
@@ -51,6 +51,6 @@ def getalp(alpu, alpo, gTp, pTGp):
     if uba:
         alp = alpo
 
-    if abs(alp) == np.Inf:
+    if abs(alp) == np.inf:
         gTp, pTGp, alpu, alpo, alp, lba, uba, ier
     return alp, lba, uba, ier
