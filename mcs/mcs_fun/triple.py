@@ -113,7 +113,7 @@ def triple(fcn, x, f, x1, x2, u, v, hess, G, setG=False):
                 if len([m for m in range(len(ind)) if ind[m] == k]) != 0:
                     g[k] = g[k] + G[i, k] * (xtripnew[i] - xtrip[i])
                     if nargin < 10 and k1 > -1:
-                        g[k] = g[k] + G(k1, k) * (xtripnew[k1] - xtrip[k1])
+                        g[k] = g[k] + G[k1, k] * (xtripnew[k1] - xtrip[k1])
                 # end if empty
             xtrip = copy.deepcopy(xtripnew)
             ftrip = copy.deepcopy(ftripnew)
