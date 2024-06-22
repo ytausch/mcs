@@ -54,7 +54,7 @@ def minqdef(c, G, A, b, eq, prt):
                       np.add(np.dot(abs(A), abs(x).reshape((len(x), 1))), abs(b).reshape(len(b), 1)))
     res = [min(res[i], 0) if not eq[i] else res[i] for i in range(len(res))]
 
-    if min([abs(res[i]) <= (np.squrt(np.count_nonzero(A)) * ressmall[i]) for i in range(len(res))]):
+    if min([abs(res[i]) <= (np.sqrt(np.count_nonzero(A)) * ressmall[i]) for i in range(len(res))]):
         # accuracy satisfactory
         ier = 0
     else:
