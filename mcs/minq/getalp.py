@@ -25,7 +25,7 @@ def getalp(alpu, alpo, gTp, pTGp):
         ier = 1
         uba = True
     if ier:
-        alp = np.NAN
+        alp = np.nan
         return alp, lba, uba, ier
 
     # determine activity
