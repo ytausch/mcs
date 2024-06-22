@@ -39,7 +39,7 @@ def minqdef(c, G, A, b, eq, prt):
     # one step of iterative refinement
 
     dy, fct, ier = minq(0, -res, GG, yu - y, yo - y, prt)
-    x = x + np.linalg.solve(R, (np.dot(A0.T, dy)))  # x=x+R\(A0'*dy);
+    x += np.linalg.solve(R, (np.dot(A0.T, dy)))  # x=x+R\(A0'*dy);
     y = y + dy
 
     # % check for accuracy
