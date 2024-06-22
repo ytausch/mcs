@@ -12,7 +12,7 @@ def chkloc(nloc, xloc, x):
 
 #------------------------------------------------------------------------------
 def addloc(nloc, xloc, x):
-    nloc = nloc + 1
+    nloc += 1
     xloc.append(copy.deepcopy(x))
     return nloc, xloc
 

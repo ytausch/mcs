@@ -150,10 +150,10 @@ def minq(gam,c,G,xu,xo,prt):
         while 1:
             while count <= n:# ok checked
                 # find next free index (or next index if unfix)
-                count = count + 1  
+                count += 1
                 if k == n-1:
                     k = -1 # reset k to -1 for python array first index
-                k = k + 1 # increase k
+                k += 1  # increase k
                 if free[k] or unfix:
                     break
             # end while count <= n
@@ -217,11 +217,11 @@ def minq(gam,c,G,xu,xo,prt):
         
         
         nfree = sum(free)  
-        if (unfix and nfree_old == nfree):
+        if unfix and nfree_old == nfree:
             # in exact arithmetic, we are already optimal
             # recompute gradient for iterative refinement
             g = np.dot(G,x)+c
-            nitref = nitref + 1  
+            nitref += 1
             #if prt>0:
             #    print('optimum found   iterative refinement tried')  
         else:

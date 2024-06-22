@@ -44,7 +44,7 @@ def lssep(func,nloc,small,sinit,short,x,p,alist,flist,amin,amax,alp,abest,fbest,
             falp = feval(func,x+alp*p)
             alist.append(alp)
             flist.append(falp)
-            nsep = nsep+1
+            nsep += 1
             if nsep >= nmin:
                 break
         #end for

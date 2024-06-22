@@ -7,7 +7,7 @@ def subint(x1, x2):
     '''
     computes [min(x,y),max(x,y)] that are neither too close nor too far away from x 
     '''
-    f = 1000;
+    f = 1000
     if f*abs(x1) <  1:
         if abs(x2) >  f:
             x2 = sign(x2)
@@ -35,8 +35,8 @@ def init(fcn,x0,l,L,n):
     #x = x.astype(int)
     
     f1 = feval(fcn,x)
-    ncall = ncall + 1 # increasing the number of function call by 1
-    
+    ncall += 1  # increasing the number of function call by 1
+
     f0 = np.zeros((L[0]+1,n))
     f0[l[0],0] = f1 # computing f(x) at intial point x0
     
@@ -55,7 +55,7 @@ def init(fcn,x0,l,L,n):
             else:
                 x[i] = x0[i,j]
                 f0[j,i] = feval(fcn,x)
-                ncall = ncall + 1 # increasing the number of cfunction call by 1 each time
+                ncall += 1  # increasing the number of cfunction call by 1 each time
                 #print(i+1,j+1,x,f0[j,i])
                 if f0[j,i] < f1:
                     f1 = f0[j,i]
@@ -110,8 +110,8 @@ def initbox(x0,f0,l,L,istar,u,v,isplit,level,ipar,ichild,f,nboxes,prt):
         # check if x left endpoint is > lower bound (left endpoint)
         # if so - genetrate a box
         if x0[i,0] >  u[i]:
-            nboxes = nboxes + 1 # one extra box is generated for the parent box
-            nchild = nchild + 1 # therefore incerase number of child by 1 of the parent box
+            nboxes += 1  # one extra box is generated for the parent box
+            nchild += 1  # therefore incerase number of child by 1 of the parent box
             # set parent of this ith box split in the ithe direction (dimension)
             ipar[nboxes], level[nboxes], ichild[nboxes], f[0,nboxes] = genbox(par, level[par]+1,-nchild, f0[0, i])
         # end if
@@ -137,8 +137,8 @@ def initbox(x0,f0,l,L,istar,u,v,isplit,level,ipar,ichild,f,nboxes,prt):
         #end istart
     
         for j in range(L[i]):
-            nboxes = nboxes + 1
-            nchild = nchild + 1
+            nboxes += 1
+            nchild += 1
             if f0[j,i] <= f0[j+1,i]:
                 s = 1
             else:
@@ -166,13 +166,13 @@ def initbox(x0,f0,l,L,istar,u,v,isplit,level,ipar,ichild,f,nboxes,prt):
                     fu = max(quadpol(xu,d,x0[i,j:j+1]),fu)
                 #end j < Li -2
             # end if j > = 1
-            nboxes = nboxes + 1
-            nchild = nchild + 1
+            nboxes += 1
+            nchild += 1
             ipar[nboxes], level[nboxes], ichild[nboxes], f[0,nboxes] = genbox(par,level[par]+3-s,-nchild,f0[j+1,i])
         #end for j
         if x0[i,L[i]] < v[i]:
-            nboxes = nboxes + 1
-            nchild = nchild + 1            
+            nboxes += 1
+            nchild += 1
             ipar[nboxes], level[nboxes], ichild[nboxes], f[0,nboxes] = genbox(par,level[par]+1,-nchild,f0[L[i],i])
             
         if istar[i] == L[i]:

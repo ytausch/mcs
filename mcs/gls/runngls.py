@@ -7,8 +7,6 @@ Arnold Neumaier
 @author: yl918888
 """
 
-%reset -f
-%clear
 #%%
 import numpy as np
 from optimization.parameter.mcs.gls.gls import gls

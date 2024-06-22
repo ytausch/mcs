@@ -36,11 +36,11 @@ def csearch(fcn,x,f,u,v,hess):
             delta = eps**(1/3)
         linesearch = True  
         if xmin[i] <= u[i]:
-            f1 = feval(fcn,xmin+delta*p)  
-            nfcsearch = nfcsearch + 1
+            f1 = feval(fcn,xmin+delta*p)
+            nfcsearch += 1
             if f1 >= fmi:
                 f2 = feval(fcn,xmin+2*delta*p)
-                nfcsearch = nfcsearch + 1
+                nfcsearch += 1
                 x1[i] = xmin[i] + delta
                 x2[i] = xmin[i] + 2*delta
                 if f2 >= fmi:
@@ -55,10 +55,10 @@ def csearch(fcn,x,f,u,v,hess):
                 flist = [fmi, f1]
         elif xmin[i] >= v[i]:
             f1 = feval(fcn,xmin-delta*p)
-            nfcsearch = nfcsearch + 1 
+            nfcsearch += 1
             if f1 >= fmi:
                 f2 = feval(fcn,xmin-2*delta*p)
-                nfcsearch = nfcsearch + 1 
+                nfcsearch += 1
                 x1[i] = xmin[i] - delta
                 x2[i] = xmin[i] - 2*delta 
                 if f2 >= fmi:
@@ -155,7 +155,7 @@ def csearch(fcn,x,f,u,v,hess):
                 else:
                     x[k] = x2[k]
                 f12 = feval(fcn,x)
-                nfcsearch = nfcsearch + 1
+                nfcsearch += 1
                 G[i,k] = hessian(i,k,x,xmin,f12,fmi,g,G)#  
                 G[k,i] = G[i,k]
                 if f12 < fminew:

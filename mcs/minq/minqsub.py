@@ -7,7 +7,7 @@ import sys
 #%%------------------------------------------------------------------------------
 def minqsub(nsub,free,L,dd,K,G,n,g,x,xo,xu,convex,xx,fct,nfree,unfix,alp,alpu,alpo,lba,uba,ier,subdone):
     #nsub,fct,G,L,dd,K,g,xo,xu,x,xx,n,alpu,alpo,convex,alp,lba,uba,ier,free,nfree
-    nsub = nsub + 1 
+    nsub += 1
     eps = 2.2204e-16
     # downdate factorization
     freelK = [i for i in range(len(free)) if (free<K)[i] == True]

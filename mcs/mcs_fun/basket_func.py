@@ -28,11 +28,11 @@ def basket(fcn,x,f,xmin,fmi,xbest,fbest,stop,nbasket,nsweep,nsweepbest):
             p = xmin[i] - x
             y1 = x + 1/3*p
             f1 = feval(fcn,y1)
-            ncall = ncall + 1
+            ncall += 1
             if f1 <= f:
                 y2 = x + 2/3*p
                 f2 = feval(fcn,y2)
-                ncall = ncall + 1
+                ncall += 1
                 if f2 > max(f1,fmi[i]):
                     if f1 < f:
                         x = y1
@@ -102,11 +102,11 @@ def basket1(fcn,x,f,xmin,fmi,xbest,fbest,stop,nbasket,nsweep,nsweepbest):
         p = xmin[i] - x
         y1 = x + 1/3*p
         f1 = feval(fcn,y1)
-        ncall = ncall + 1
+        ncall += 1
         if f1 <= max(fmi[i],f):
             y2 = x + 2/3*p
             f2 = feval(fcn,y2)
-            ncall = ncall + 1
+            ncall += 1
             if f2 <= max(f1,fmi[i]):
                 if f < min(min(f1,f2),fmi[i]):
                     fmi[i] = f

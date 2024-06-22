@@ -1,7 +1,5 @@
 #test minq.m, minqdef.m, minqsep.m
 
-%reset -f
-%clear
 #%%
 import numpy as np
 from optimization.parameter.mcs.minq.minq_data import minq_data

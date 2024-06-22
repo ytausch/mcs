@@ -12,7 +12,7 @@ from optimization.parameter.mcs.mcs import mcs
 
 import numpy as np
 
-class TheMCS():   
+class TheMCS:
     mEvaluateTree = None # Tree evaluation paramters
     mParams = None #  set of paramters
     mTree = None #  set of paramters
@@ -25,7 +25,7 @@ class TheMCS():
         self.mParams = pParams
         self.mTree = pTree
         self.performance_record = []
-        if(pParams.n_fun_type == 'Gaussian'):
+        if pParams.n_fun_type == 'Gaussian':
             self.mParameterToFetch = 'all'
         else:
             self.mParameterToFetch = 'weights_and_bias'
@@ -59,8 +59,7 @@ class TheMCS():
         
         smax = 5*n+10 # number of levels used
         nf = 50*pow(n,2) #limit on number of f-calls
-        stop = [3*n]  # m, integer defining stopping test
-        stop.append(float("-inf"))  # freach, function value to reach
+        stop = [3 * n, float("-inf")]  # m, integer defining stopping test
 
         iinit = 1 # 0: simple initialization list
         local = 100 	# local = 0: no local search

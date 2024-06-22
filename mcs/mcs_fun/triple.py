@@ -52,7 +52,7 @@ def triple(fcn,x,f,x1,x2,u,v,hess,G,setG = False):
         
         x[i] = x2[i]
         f2 = feval(fcn,x)
-        nf = nf + 2
+        nf += 2
         g[i], G[i,i] = polint1([xtrip[i],x1[i],x2[i]],[f,f1,f2])
         if f1 <= f2:
             if f1 < ftrip:
@@ -80,7 +80,7 @@ def triple(fcn,x,f,x1,x2,u,v,hess,G,setG = False):
                         else:
                             x[k] = x2[k]
                         f12 = feval(fcn,x)
-                        nf = nf + 1
+                        nf += 1
                         G[i,k] = hessian(i,k,x,xtrip,f12,ftrip,g,G)
                         #print(G[i,k])
                         G[k,i] = G[i,k]
@@ -107,7 +107,7 @@ def triple(fcn,x,f,x1,x2,u,v,hess,G,setG = False):
                 else:
                     x2[k1] = xtrip[k1] 
             for k in range(i+1):
-                if (len([m for m in range(len(ind)) if ind[m] == k]) != 0):
+                if len([m for m in range(len(ind)) if ind[m] == k]) != 0:
                     g[k] = g[k] + G[i,k]*(xtripnew[i] - xtrip[i])
                     if nargin < 10 and k1 > -1:
                         g[k] = g[k] + G(k1,k)*(xtripnew[k1] - xtrip[k1])

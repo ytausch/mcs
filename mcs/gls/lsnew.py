@@ -49,7 +49,7 @@ def lsnew(func,nloc,small,sinit,short,x,p,s,alist,flist,amin,amax,alp,abest,fmed
         alp = max(amin, al)
     elif rightok:
         #if prt>1, disp('extrapolate at right end point'); #
-        extra=1;
+        extra=1
         au = alist[s-1] + (alist[s-1] - alist[s-1-step])/small
         alp = min(au,amax)
     else:

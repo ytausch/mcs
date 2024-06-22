@@ -4,8 +4,6 @@ Created on Sat Oct 19 10:28:05 2019
 
 @author: yl918888
 """
-%reset -f
-%clear
 #%%
 ## important test 
 #import numpy as np

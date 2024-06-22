@@ -166,7 +166,7 @@ def lslocal(func,nloc,small,sinit,short,x,p,alist,flist,amin,amax,alp,abest,fbes
         close = (min([abs(i-alp) for i in alist]) <= alptol )
     
         if cas<0 or close:
-            nsat = nsat+1
+            nsat += 1
         #        if prt>2, 
         #            if cas<0, disp('no local refinement at boundary')#
         #        elif alptol>0:
@@ -180,7 +180,7 @@ def lslocal(func,nloc,small,sinit,short,x,p,alist,flist,amin,amax,alp,abest,fbes
         if cas>=0 and ( final or not close ):
             #if prt>1, disp(['add local point at alp=',num2str(alp)])##
             # add point to the list
-            nadd=nadd+1#
+            nadd += 1  #
             # new function value
             falp = feval(func,x+alp*p)#
             alist.append(alp)

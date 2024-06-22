@@ -90,12 +90,11 @@ fcn = 'myfun' # gpr, bra, cam, hm3, s10, sh5, sh7, hm6, 'myfun'
 u,v,nglob,fglob,xglob = defaults(fcn)
 #feval(fcn, [2,5])
 # function paramters
-n = len(u);		         # problem dimension
+n = len(u)		         # problem dimension
 prt = 1 # print level
 smax = 5*n+10 # number of levels used
 nf = 50*pow(n,2) #limit on number of f-calls
-stop = [3*n]  # m, integer defining stopping test
-stop.append(float("-inf"))  # freach, function value to reach
+stop = [3 * n, float("-inf")]  # m, integer defining stopping test
 
 m = 1
 if m == 0:

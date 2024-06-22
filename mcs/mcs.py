@@ -184,9 +184,9 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
         # required tolerance, flag is set to 0 and the program is terminated
   
     # the vector record is updated, and the minimal level s containing non-split boxes is computed
-    s, record = strtsw(smax,level,f[0,:], nboxes, record) 
-    nsweep = nsweep + 1;	# sweep counter  
-    
+    s, record = strtsw(smax,level,f[0,:], nboxes, record)
+    nsweep += 1  # sweep counter
+
     #Check values in MATLAB for these
     # x0, u, v, l, L, x,v1, f0, istar, f, ipar,level,ichild,f,isplit,p,xbest,fbest,nboxes,nglob,xglob, s,record,nsweep
     #%%
@@ -233,7 +233,7 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
             level[par] = 0
             #print('check len b:',len(xmin),nbasket,nbasket0)
             if z[1,par] == np.Inf: # prepare for splitting by initialization list
-                m = m + 1
+                m += 1
                 z[1,par] = m
                 xbest,fbest,f01,xmin,fmi,ipar,level,ichild,f,flag,ncall1, record,nboxes,nbasket,nsweepbest,nsweep = splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,f,xbest,fbest,stop,prt,record,nboxes,nbasket,nsweepbest,nsweep)
                 f01 = f01.reshape(len(f01),1)
@@ -262,7 +262,7 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
                 record = updtrec(par,s+1,f[0,:], record) #  update record
             else:
                 level[par] = 0
-                nbasket = nbasket + 1
+                nbasket += 1
                 if len(xmin) == nbasket:
                     xmin.append(copy.deepcopy(x))#xmin[:,nbasket] = x
                     fmi.append(f[0,par])
@@ -272,10 +272,10 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
         #print('Level:',level)  #print('Record:',record)
         #%%
         #update s to split boxes
-        s = s + 1
+        s += 1
         while s < smax:
             if record[s] == 0:
-                s = s + 1
+                s += 1
             else:
                 break
         #%%
@@ -315,7 +315,7 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
                                 fbest = copy.deepcopy(fmi1)
                                 nsweepbest = nsweep
                                 if not flag:
-                                    nbasket0 = nbasket0 + 1
+                                    nbasket0 += 1
                                     nbasket = copy.deepcopy(nbasket0)
                                     if len(xmin) == nbasket:
                                         xmin.append(copy.deepcopy(xmin1))
@@ -341,7 +341,7 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
                                 break
                             if loc:
                                 #print('check1:',nbasket0, nbasket,xmin,fmi)
-                                nbasket0 = nbasket0 + 1
+                                nbasket0 += 1
                                 if len(xmin) == nbasket0:
                                     xmin.append(copy.deepcopy(xmin1))
                                     fmi.append(copy.deepcopy(fmi1))
@@ -376,7 +376,7 @@ def mcs(fcn,u,v,smax,nf,stop,iinit,local,gamma,hess,prt=1):
                 if nsweep - nsweepbest >= stop[0]:
                     flag = 3
                     return xbest,fbest,xmin,fmi,ncall,ncloc,flag
-            nsweep = nsweep + 1
+            nsweep += 1
         #end if  s ==  max
     #end while
     if ncall >= nf:

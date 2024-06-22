@@ -31,7 +31,7 @@ def exgain(n,n0,l,L,x,y,x1,x2,fx,f0,f1,f2):
     '''
     
     e = np.zeros(n) # initialization
-    emin = np.Inf;  # initialization
+    emin = np.Inf  # initialization
     for i in range(n):
         if n0[i] == 0:
             # expected gain for splitting according to the initialization list

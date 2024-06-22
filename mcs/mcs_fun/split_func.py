@@ -27,7 +27,7 @@ def splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,
         if j != l[i]:
             x[i] = x0[i,j]
             f0[j] = feval(fcn,x)
-            ncall = ncall + 1
+            ncall += 1
             if f0[j] < fbest:
                 fbest = f0[j]
                 xbest = copy.deepcopy(x)
@@ -45,16 +45,16 @@ def splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,
     if s + 1 < smax:
         nchild = 0
         if u[i] < x0[i,0]: # in that case the box at the boundary gets level s + 1
-            nchild = nchild + 1
-            nboxes = nboxes + 1
+            nchild += 1
+            nboxes += 1
             ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+1,-nchild,f0[0])
             record = updtrec(nboxes,level[nboxes],f[0,:], record)
         #end if ui <  xo[i,0]
         for j in range(L[i]):
-            nchild = nchild + 1
+            nchild += 1
             #splval = split1(x0[i,j],x0[i,j+1],f0[j],f0[j+1])
             if f0[j] <= f0[j+1] or s + 2 < smax:
-                nboxes = nboxes + 1
+                nboxes += 1
                 if f0[j] <= f0[j+1]:
                     level0 = s + 1
                 else:
@@ -66,17 +66,17 @@ def splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,
                 record = updtrec(nboxes,level[nboxes],f[0,:], record)
             else:
                 x[i] = x0[i,j]
-                nbasket = nbasket + 1
-                if(len(xmin) == nbasket):
+                nbasket += 1
+                if len(xmin) == nbasket:
                     xmin.append(copy.deepcopy(x))
                     fmi.append(f0[j])                  
                 else:
                     xmin[nbasket] = copy.deepcopy(x)
                     fmi[nbasket] = f0[j]
             #end if f0[j] <= f0[j+1]  or s + 2 < smax
-            nchild = nchild + 1                
+            nchild += 1
             if f0[j+1] < f0[j] or s + 2 < smax:
-                nboxes = nboxes + 1
+                nboxes += 1
                 if f0[j+1] < f0[j]:
                     level0 = s + 1
                 else:
@@ -86,8 +86,8 @@ def splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,
                 record = updtrec(nboxes,level[nboxes],f[0,:], record)
             else:
                 x[i] = x0[i,j+1]
-                nbasket = nbasket + 1
-                if(len(xmin) == nbasket):
+                nbasket += 1
+                if len(xmin) == nbasket:
                     xmin.append(copy.deepcopy(x))
                     fmi.append(f0[j+1])
                 else:
@@ -96,16 +96,16 @@ def splinit(fcn,i,s,smax,par,x0,n0,u,v,x,y,x1,x2,L,l,xmin,fmi,ipar,level,ichild,
             #end f0[j+1] < f0[j]
         #end for
         if x0[i,L[i]] < v[i]: # in that case the box at the boundary gets level s + 1
-            nchild = nchild + 1
-            nboxes = nboxes + 1
+            nchild += 1
+            nboxes += 1
             ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+1,-nchild,f0[L[i]])
             record = updtrec(nboxes,level[nboxes],f[0,:], record)
         ##end if x0 < vi
     else:
         for j in range(L[i]+1):
             x[i] = x0[i,j]
-            nbasket = nbasket + 1
-            if(len(xmin) == nbasket):
+            nbasket += 1
+            if len(xmin) == nbasket:
                 xmin.append(copy.deepcopy(x))
                 fmi.append(f0[j])
             else:
@@ -125,7 +125,7 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
     flag = 1
     x[i] = z[1]
     f[1,par] = feval(fcn,x)
-    ncall = ncall + 1
+    ncall += 1
     #print('fbest:',fbest)
     
     if f[1,par] < fbest:
@@ -145,17 +145,17 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
     
     if s + 1 < smax:
         if f[0,par] <= f[1,par]:
-            nboxes = nboxes + 1
+            nboxes += 1
             ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+1,1,f[0,par])
             record = updtrec(nboxes,level[nboxes],f[0,:],record)
             if s + 2 < smax:
-                nboxes = nboxes + 1
+                nboxes += 1
                 ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+2,2,f[1,par])
                 record = updtrec(nboxes,level[nboxes],f[0,:],record)
             else:
                 x[i] = z[1]
-                nbasket = nbasket + 1
-                if(len(xmin) == nbasket):
+                nbasket += 1
+                if len(xmin) == nbasket:
                     xmin.append(copy.deepcopy(x)) #xmin[:,nbasket] = x
                     fmi.append(f[1,par])#fmi[nbasket] = f[1,par]
                 else:
@@ -164,20 +164,20 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
             #end if s+2 < smax
         else:
             if s + 2 < smax:
-                nboxes = nboxes + 1
+                nboxes += 1
                 ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+2,1,f[0,par])
                 record = updtrec(nboxes,level[nboxes],f[0,:],record)
             else:
                 x[i] = z[0]
-                nbasket = nbasket + 1
-                if(len(xmin) == nbasket):
+                nbasket += 1
+                if len(xmin) == nbasket:
                     xmin.append(copy.deepcopy(x))
                     fmi.append(f[0,par])
                 else:
                     xmin[nbasket] = copy.deepcopy(x)
                     fmi[nbasket] = f[0,par]
             # end s+2
-            nboxes = nboxes + 1
+            nboxes += 1
             ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+1,2,f[1,par])
             record = updtrec(nboxes,level[nboxes],f[0,:],record)
         # end if f[0,par] <= f[1,par] else 
@@ -186,18 +186,18 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
         # it gets level s + 1 otherwise it gets level s + 2
         if z[1] != y[i]:
             if abs(z[1]-y[i]) > abs(z[1]-z[0])*(3-np.sqrt(5))*0.5:
-                nboxes = nboxes + 1
+                nboxes += 1
                 ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+1,3,f[1,par])
                 record = updtrec(nboxes,level[nboxes],f[0,:],record)
             else:
                 if s + 2 < smax:
-                    nboxes = nboxes + 1
+                    nboxes += 1
                     ipar[nboxes],level[nboxes],ichild[nboxes],f[0,nboxes] = genbox(par,s+2,3,f[1,par])
                     record = updtrec(nboxes,level[nboxes],f[0,:],record)
                 else:
                     x[i] = z[1]
-                    nbasket = nbasket + 1
-                    if(len(xmin) == nbasket):
+                    nbasket += 1
+                    if len(xmin) == nbasket:
                         xmin.append(copy.deepcopy(x)) # xmin[:,nbasket] = x
                         fmi.append(copy.deepcopy(f[1,par])) # fmi[nbasket] = f[1,par]
                     else:
@@ -212,8 +212,8 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
         
         xi1[i] = z[0]
         #print(xi1)
-        nbasket = nbasket + 1
-        if(len(xmin) == nbasket):
+        nbasket += 1
+        if len(xmin) == nbasket:
             xmin.append(xi1) #xmin[:,nbasket] = x
             fmi.append(f[0,par])
         else:
@@ -222,8 +222,8 @@ def split(fcn,i,s,smax,par,n0,u,v,x,y,x1,x2,z,xmin,fmi,ipar,level,ichild,f,xbest
         
         xi2[i] = z[1]
         #print(xi2)
-        nbasket = nbasket + 1
-        if(len(xmin) == nbasket):
+        nbasket += 1
+        if len(xmin) == nbasket:
             xmin.append(xi2)
             fmi.append(f[1,par])
         else:

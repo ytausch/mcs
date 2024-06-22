@@ -28,9 +28,9 @@ def vertex(j,n,u,v,v1,x0,f0,ipar,isplit,ichild,z,f,l,L):
             i = int(abs(isplit[ipar[m]])) -1 #  negative 1 for making index fit to array in python
         else:
             i = int(abs(isplit[ipar[m]])) #  no negative 
-            
-        n0[i] = n0[i] + 1 # increase the counting tthe number of time boxes has been split in ith direction
-        
+
+        n0[i] += 1  # increase the counting tthe number of time boxes has been split in ith direction
+
         # ichild holds value from level 1 and not from level 0 there > 0 is ok
         if ichild[m] == 1:
             if x[i] == np.Inf or x[i] == z[0,ipar[m]]:
@@ -106,7 +106,7 @@ def vertex(j,n,u,v,v1,x0,f0,ipar,isplit,ichild,z,f,l,L):
                     x1[i] = x0[i,j1]
                     f1[i] = f1[i] + f0[j1,k]
                     if x[i] != x0[i,j1+j3]:
-                        x2[i] = x0[i,j1+j3];
+                        x2[i] = x0[i,j1+j3]
                         f2[i] = f2[i] + f0[j1+j3,k]
                     # end  if x[i] != x0[i,j1+j3]
                 elif x2[i] == np.Inf:

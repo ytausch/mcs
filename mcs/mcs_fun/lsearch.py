@@ -50,7 +50,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
     
     if np.linalg.norm(p):
         f1 = feval(fcn,x)
-        ncall = ncall + 1
+        ncall += 1
         alist = [0,1] 
         flist = [fmi,f1] 
         fpred = fmi + np.dot(g.T,p) + np.dot(0.5, np.dot(p.T,np.dot(G,p)))        
@@ -94,7 +94,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
     #print('ncall',nf, ncall, maxstep, len(ind),fmi, gain, r)
     while (ncall < nf)  and  (nstep < maxstep)  and  ((diag or len(ind) < n) or (stop[0] == 0  and  fmi - gain <= stop[1]) or (b >= gamma*(f0-f)  and  gain > 0)):
         #print('while')
-        nstep = nstep + 1
+        nstep += 1
         delta = [abs(xmin[i])*eps**(1/3) for i in range(len(xmin))]
         #print('delta:',xmin, delta)        
         j = [inx for inx in range(len(delta)) if (not delta[inx])]
@@ -115,7 +115,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
                 else:
                     x[i]  = x1[i]
                 f1 = feval(fcn,x)
-                ncall = ncall + 1
+                ncall += 1
 
                 if f1 < fmi:
                     alist = [0, x[i], -xmin[i]]
@@ -169,9 +169,9 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
         if not flag:
             return xmin,fmi,ncall,flag,nsweep,nsweepbest
         if r < 0.25:
-            d = 0.5*d
+            d *= 0.5
         elif r > 0.75:
-            d = 2*d
+            d *= 2
 
         minusd = np.asarray([max(-d[jnx],u[jnx]-xmin[jnx]) for jnx in range(len(xmin))])
         mind = np.asarray([min(d[jnx],v[jnx]-xmin[jnx]) for jnx in range(len(xmin))])
@@ -186,7 +186,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
             fpred = fmi + np.dot(g.T,p) + np.dot(0.5, np.dot(p.T,np.dot(G,p)))
             x = copy.deepcopy(xmin + p)
             f1 = feval(fcn,x)
-            ncall = ncall + 1
+            ncall += 1
             alist = [0, 1]
             flist = [fmi, f1]
             alist,flist,nfls = gls(fcn,u,v,xmin,p,alist,flist,nloc,small,smaxls)
@@ -208,7 +208,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
             elif fold == fpred:
                 r = 0.5
             else:
-                r = (fold-fmi)/(fold-fpred);
+                r = (fold-fmi)/(fold-fpred)
             if fmi < fold:
                 fac = abs(1-1/r)# 
                 eps0 = max(eps,min(fac*eps0,0.001))# 
@@ -216,7 +216,7 @@ def lsearch(fcn,x,f,f0,u,v,nf,stop,maxstep,gamma,hess,nsweep,nsweepbest):
                 eps0 = 0.001# 
         else:
             gain = f - fmi
-            if (not gain):
+            if not gain:
                 eps0 = 0.001
                 fac = np.Inf
                 r = 0 
