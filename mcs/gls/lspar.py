@@ -31,7 +31,7 @@ def lspar(func, nloc, small, sinit, short, x, p, alist, flist, amin, amax, alp, 
             ind = [j for j in range(s - 2 - 1, s)]
             ii = i - (s - 1) + 2  # corrections for index
         else:
-            ind = [j for j in range(ii - 1, i + 1)]
+            ind = [j for j in range(i - 1, i + 1)]
             ii = 2 - 1  # -1 for index
 
         # in natural order
