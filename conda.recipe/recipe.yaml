@@ -8,7 +8,7 @@ source:
   path: ../
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - python -m pip install . --no-deps --ignore-installed -vv --no-build-isolation --disable-pip-version-check
@@ -20,11 +20,14 @@ requirements:
     - setuptools-scm
   run:
     - python >=3.12
+    - numpy >=2.0.0,<2.1
+    - scipy >=1.13.1,<1.14
 
 tests:
   - python:
       imports:
         - mcs
+        - mcs.mcs
       pip_check: true
 
 about:
