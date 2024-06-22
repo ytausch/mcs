@@ -1,6 +1,5 @@
 [project]
 name = "mcs"
-version = "0.1.0"
 description = "Global optimization by multilevel coordinate search (MCS)"
 authors = [
     "Yannik Tausch <dev@ytausch.de>",
