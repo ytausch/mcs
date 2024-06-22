@@ -7,29 +7,25 @@ Arnold Neumaier
 @author: yl918888
 """
 
-#%%
-import numpy as np
+# %%
 from optimization.parameter.mcs.gls.gls import gls
 
-prt=2#		# print level
-xx=[-9,2]#	# interval for searching minimum
+prt = 2  # # print level
+xx = [-9, 2]  # # interval for searching minimum
 
-func='glstest'
-xl=xx[0]
-xu=xx[1]#
-x=(xl+xu)/2#
+func = 'glstest'
+xl = xx[0]
+xu = xx[1]  #
+x = (xl + xu) / 2  #
 
-p=1#
+p = 1  #
 
 alist = []
 flist = []
-nloc=3
-small=0.1
-smax=10
+nloc = 3
+small = 0.1
+smax = 10
 
-#%%
-alist,flist,nf = gls(func,xl,xu,x,p,alist,flist,nloc,small,smax,prt)
-alist,flist,nf
-
-
-
+# %%
+alist, flist, nf = gls(func, xl, xu, x, p, alist, flist, nloc, small, smax, prt)
+alist, flist, nf
