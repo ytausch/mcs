@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Get latest tag
-        run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
+        run: echo "GIT_DESCRIBE_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
       - name: Run rattler-build
         uses: prefix-dev/rattler-build-action@v0.2.10
       - name: Upload to prefix.dev
