@@ -28,5 +28,5 @@ jobs:
             echo "Uploading ${pkg}"
             rattler-build upload prefix -c private-ytausch "${pkg}"
           done
-          env:
-            PREFIX_API_KEY: ${{ secrets.PREFIX_API_KEY }}
+        env:
+          PREFIX_API_KEY: ${{ secrets.PREFIX_API_KEY }}
