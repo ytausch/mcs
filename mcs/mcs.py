@@ -98,8 +98,8 @@ def mcs(fcn, u, v, smax, nf, stop, iinit, local, gamma, hess, prt=1):
                 x0[i, 1] = 0.5 * (x0[i, 0] + x0[i, 2])
             else:
                 x0[i, 1] = 0
-                _, x0[i, 0], subint(0, u[i])
-                _, x0[i, 2], subint(0, v[i])
+                _, x0[i, 0] = subint(0, u[i])
+                _, x0[i, 2] = subint(0, v[i])
     elif iinit == 2:
         x0.append([(i * 5 + j) / 6 for i, j in zip(u, v)])
         x0.append([0.5 * (i + j) for i, j in zip(u, v)])
