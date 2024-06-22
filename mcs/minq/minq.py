@@ -62,9 +62,10 @@ def minq(gam, c, G, xu, xo, prt):
         print('minq: lower bound has wrong dimension')
 
     if 'xx' in locals():
-        if xx.shape[0] != n:
-            ier = -1
-            print('minq: lower bound has wrong dimension')
+        raise RuntimeError("This should never happen.")
+        #if xx.shape[0] != n:
+        #    ier = -1
+        #    print('minq: lower bound has wrong dimension')
     else:
         # initialize trial point xx, function value fct and gradient g
         # cold start with absolutely smallest feasible point
