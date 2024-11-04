@@ -23,10 +23,12 @@ jobs:
       - name: Move conda package
         run: mv ../output .
       - name: Upload to prefix.dev
+        # only when pushing tag
+        if: github.ref_type == 'tag'
         run: |
           for pkg in $(find output -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
             echo "Uploading ${pkg}"
-            rattler-build upload prefix -c private-ytausch "${pkg}"
+            rattler-build upload prefix -c public-ytausch "${pkg}"
           done
         env:
           PREFIX_API_KEY: ${{ secrets.PREFIX_API_KEY }}
